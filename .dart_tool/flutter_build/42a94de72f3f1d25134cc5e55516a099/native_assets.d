@@ -1,0 +1,1 @@
+ C:\\Users\\dhdar\\AndroidStudioProjects\\synergy_app\\.dart_tool\\flutter_build\\42a94de72f3f1d25134cc5e55516a099\\native_assets.yaml: 
