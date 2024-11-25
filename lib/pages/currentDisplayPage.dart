@@ -95,7 +95,7 @@ class _CurrentDisplayPageState extends State<CurrentDisplayPage>
                 // Add animated opacity or bounce for effect
                 AnimatedOpacity(
                   opacity: _isRefreshing ? 0.3 : 1.0,
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   child: Text(
                     '${widget.datas["current"]} A',
                     style: const TextStyle(
@@ -108,7 +108,7 @@ class _CurrentDisplayPageState extends State<CurrentDisplayPage>
                 const SizedBox(height: 20),
                 AnimatedOpacity(
                   opacity: _isRefreshing ? 0.3 : 1.0,
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   child: const Text(
                     'Last updated: Just now',
                     style: TextStyle(

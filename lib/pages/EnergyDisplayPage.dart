@@ -4,7 +4,7 @@ import 'package:synergy_app/main.dart';
 class EnergyDisplayPage extends StatefulWidget {
   var datas;
 
-  EnergyDisplayPage({required this.datas});
+  EnergyDisplayPage({super.key, required this.datas});
 
   @override
   State<EnergyDisplayPage> createState() => _EnergyDisplayPageState();
@@ -15,11 +15,11 @@ class _EnergyDisplayPageState extends State<EnergyDisplayPage> {
 
   @override
   Widget build(BuildContext context) {
-    FetchingApi api_fetch = FetchingApi();
+    FetchingApi apiFetch = FetchingApi();
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Energy Monitor',
           style: TextStyle(
             fontSize: 24,
@@ -39,7 +39,7 @@ class _EnergyDisplayPageState extends State<EnergyDisplayPage> {
             decoration: BoxDecoration(
               color: Colors.lightBlueAccent,
               borderRadius: BorderRadius.circular(30),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.grey,
                   offset: Offset(4, 8),
@@ -47,11 +47,11 @@ class _EnergyDisplayPageState extends State<EnergyDisplayPage> {
                 ),
               ],
             ),
-            padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+            padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                const Text(
                   'Energy Reading',
                   style: TextStyle(
                     fontSize: 20,
@@ -60,27 +60,27 @@ class _EnergyDisplayPageState extends State<EnergyDisplayPage> {
                     letterSpacing: 0.5,
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 // Animation part
                 AnimatedOpacity(
                   opacity: _isRefreshing ? 0.3 : 1.0, // Fade effect for refresh
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   child: Text(
                     '${widget.datas["energy"]} J',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 54,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 AnimatedOpacity(
                   opacity: _isRefreshing ? 0.3 : 1.0,
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   child: Text(
                     'Last updated: ${_isRefreshing ? "Refreshing..." : "Just now"}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                       color: Colors.white,
                     ),
@@ -98,16 +98,16 @@ class _EnergyDisplayPageState extends State<EnergyDisplayPage> {
           });
 
           // Simulate a delay to show the refreshing animation
-          Future.delayed(Duration(seconds: 2), () {
+          Future.delayed(const Duration(seconds: 2), () {
             setState(() {
               // Update the data and set refreshing state to false
-              api_fetch.fetchData();
+              apiFetch.fetchData();
               _isRefreshing = false;
             });
           });
         },
         backgroundColor: Colors.lightBlueAccent,
-        child: Icon(
+        child: const Icon(
           Icons.refresh,
           size: 28,
           color: Colors.white,

@@ -7,7 +7,7 @@ import 'package:synergy_app/pages/login_or_direct.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class FetchingApi {

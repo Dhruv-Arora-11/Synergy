@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:synergy_app/main.dart';
@@ -23,7 +22,7 @@ class LoginOrDirect extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Container(
                     color: Colors.white, // Set your desired background color
-                    child: Center(child: CircularProgressIndicator()),
+                    child: const Center(child: CircularProgressIndicator()),
                   );
                 }
                 if (snapshot.hasError) {
