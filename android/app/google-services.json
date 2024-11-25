@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "86401033159",
+    "project_id": "synergy-3363e",
+    "storage_bucket": "synergy-3363e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86401033159:android:7c13102d225b5c055eefe2",
+        "android_client_info": {
+          "package_name": "com.example.synergy_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwd1vPHyawhUeM79FKHknDamXhEuU7bY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
