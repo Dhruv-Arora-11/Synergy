@@ -1,19 +1,51 @@
-// ignore: file_names
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'SecondPage.dart'; // Import SecondPage to enable navigation
-import 'SignupPage.dart'; // Import SignupPage
+import 'SignupPage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatelessWidget {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
-  var datas;
+  final Map<String, dynamic>? datas;
 
   HomePage({super.key, required this.datas});
 
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email.text.trim(), password: password.text.trim());
+  Future signIn(BuildContext context) async {
+    if (email.text.trim() == "" || password.text.trim() == "") {
+      _showToast("Email or password is empty");
+    } else {
+      try {
+        UserCredential userCredential =
+            await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email.text,
+          password: password.text,
+        );
+        if (userCredential.user != null) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => HomePage(
+                      datas: datas,
+                    )), // HomeScreen is the next page
+          );
+        }
+      } on FirebaseAuthException catch (e) {
+        _showToast(e.message ?? 'An unknown error occurred');
+      }
+    }
+  }
+
+  void _showToast(String message) {
+    Fluttertoast.showToast(
+      msg: message, // The message to display
+      toastLength: Toast.LENGTH_SHORT, // Duration of the toast (short or long)
+      gravity: ToastGravity
+          .BOTTOM, // Position of the toast (e.g., bottom of the screen)
+      timeInSecForIosWeb: 1, // Duration for iOS/Web
+      backgroundColor: Colors.black, // Background color of the toast
+      textColor: Colors.white, // Text color
+      fontSize: 16.0, // Font size of the text
+    );
   }
 
   @override
@@ -103,17 +135,7 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 24.0),
                   ElevatedButton(
                     onPressed: () {
-                      email.text;
-                      password.text;
-
-                      // Navigate to SecondPage on login
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SecondPage(
-                                  datas: datas,
-                                )),
-                      );
+                      signIn(context);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,

@@ -6,34 +6,43 @@ import 'package:synergy_app/pages/HomePage.dart';
 import 'package:synergy_app/pages/SecondPage.dart';
 
 class LoginOrDirect extends StatelessWidget {
-  var datas;
-  LoginOrDirect({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder(
+      body: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
           if (snapshot.hasData) {
             return FutureBuilder<Map<String, dynamic>>(
               future: FetchingApi().fetchData(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Container(
-                    color: Colors.white, // Set your desired background color
-                    child: const Center(child: CircularProgressIndicator()),
-                  );
+              builder: (context, fetchSnapshot) {
+                if (fetchSnapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
                 }
-                if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}'));
+                if (fetchSnapshot.hasError) {
+                  return Center(child: Text('Error: ${fetchSnapshot.error}'));
                 }
-                final datas = snapshot.data;
-                return SecondPage(datas: datas); // Pass resolved data
+                final datas = fetchSnapshot.data;
+                return SecondPage(datas: datas); // Pass fetched data
               },
             );
           } else {
-            return HomePage(datas: datas);
+            return FutureBuilder<Map<String, dynamic>>(
+              future: FetchingApi().fetchData(),
+              builder: (context, fetchSnapshot) {
+                if (fetchSnapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                if (fetchSnapshot.hasError) {
+                  return Center(child: Text('Error: ${fetchSnapshot.error}'));
+                }
+                final datas = fetchSnapshot.data;
+                return HomePage(datas: datas); // Pass resolved data
+              },
+            );
           }
         },
       ),

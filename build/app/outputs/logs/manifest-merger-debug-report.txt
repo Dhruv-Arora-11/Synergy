@@ -58,6 +58,7 @@ INJECTED from C:\Users\dhdar\AndroidStudioProjects\synergy_app\android\app\src\d
 INJECTED from C:\Users\dhdar\AndroidStudioProjects\synergy_app\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 MERGED from [:firebase_auth] C:\Users\dhdar\AndroidStudioProjects\synergy_app\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core] C:\Users\dhdar\AndroidStudioProjects\synergy_app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:fluttertoast] C:\Users\dhdar\AndroidStudioProjects\synergy_app\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-auth:23.1.0] C:\Users\dhdar\.gradle\caches\transforms-3\6e52b8c918ffd01f1e6cf1f887d226b1\transformed\jetified-firebase-auth-23.1.0\AndroidManifest.xml:17:1-75:12
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\dhdar\.gradle\caches\transforms-3\1c657bf4cbece5e9807286c11f64a0db\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:2:1-18:12
 MERGED from [androidx.credentials:credentials:1.2.0-rc01] C:\Users\dhdar\.gradle\caches\transforms-3\446c2482fca15fe2e0c7f27462a90fdb\transformed\jetified-credentials-1.2.0-rc01\AndroidManifest.xml:2:1-7:12
@@ -140,6 +141,8 @@ MERGED from [:firebase_auth] C:\Users\dhdar\AndroidStudioProjects\synergy_app\bu
 MERGED from [:firebase_auth] C:\Users\dhdar\AndroidStudioProjects\synergy_app\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\dhdar\AndroidStudioProjects\synergy_app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\dhdar\AndroidStudioProjects\synergy_app\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] C:\Users\dhdar\AndroidStudioProjects\synergy_app\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] C:\Users\dhdar\AndroidStudioProjects\synergy_app\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth:23.1.0] C:\Users\dhdar\.gradle\caches\transforms-3\6e52b8c918ffd01f1e6cf1f887d226b1\transformed\jetified-firebase-auth-23.1.0\AndroidManifest.xml:21:5-23:151
 MERGED from [com.google.firebase:firebase-auth:23.1.0] C:\Users\dhdar\.gradle\caches\transforms-3\6e52b8c918ffd01f1e6cf1f887d226b1\transformed\jetified-firebase-auth-23.1.0\AndroidManifest.xml:21:5-23:151
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\dhdar\.gradle\caches\transforms-3\1c657bf4cbece5e9807286c11f64a0db\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:5:5-44

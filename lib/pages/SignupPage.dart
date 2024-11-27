@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'SecondPage.dart'; // Import your second page to navigate after signup
 
 class SignupPage extends StatefulWidget {
-  var datas;
-
+  final Map<String, dynamic>? datas;
   SignupPage({super.key, required this.datas});
 
   @override
@@ -28,6 +27,8 @@ class _SignupPageState extends State<SignupPage> {
       if (_passwordController.text != _confirmPasswordController.text) {
         _showErrorDialog('Passwords do not match');
         return;
+      } else if (_passwordController.text.trim() == "") {
+        _showErrorDialog("The password is empty");
       }
 
       // Create a new user with Firebase Auth

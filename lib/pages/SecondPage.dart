@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
-// import '../API_calling/api_calling.dart';
+import 'package:synergy_app/pages/HomePage.dart';
 import 'CurrentDisplayPage.dart';
 import 'EnergyDisplayPage.dart';
 import 'FrequencyDisplayPage.dart';
@@ -8,19 +8,28 @@ import 'PowerDisplayPage.dart';
 import 'VoltageDisplayPage.dart';
 
 class SecondPage extends StatelessWidget {
-  var datas;
+  final Map<String, dynamic>? datas;
 
   SecondPage({super.key, required this.datas});
   @override
   Widget build(BuildContext context) {
-    // final apiProvider = Provider.of<FetchingApi>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 15),
-            child: Icon(Icons.login),
+            padding: const EdgeInsets.only(right: 15),
+            child: InkWell(
+              child: const Icon(Icons.login),
+              onTap: () {
+                FirebaseAuth.instance.signOut();
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(datas: datas),
+                    ));
+              },
+            ),
           )
         ],
         title: const Text('Previous Readings',
@@ -57,21 +66,28 @@ class SecondPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _buildInfoColumn('${datas["current"]}', 'Current'),
-                        _buildInfoColumn('${datas["voltage"]}', 'Voltage'),
+                        _buildInfoColumn(
+                            '${datas?["current"] ?? "No current data"}',
+                            "current"),
+                        _buildInfoColumn(
+                            '${datas?["voltage"] ?? "No current data"}',
+                            "voltage"),
                       ],
                     ),
                     const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _buildInfoColumn('${datas["frequency"]}', 'Frequency'),
-                        _buildInfoColumn('${datas["power"]}', 'Power'),
+                        _buildInfoColumn(
+                            '${datas?["frequency"] ?? "No current data"}',
+                            "Frequency"),
+                        _buildInfoColumn(
+                            '${datas?["power"] ?? "No current data"}', "Power"),
                       ],
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      '${datas["energy"]}',
+                      '${datas?["energy"] ?? "No data for Energy"}',
                       style: const TextStyle(
                           fontSize: 28,
                           color: Colors.lightBlueAccent,
