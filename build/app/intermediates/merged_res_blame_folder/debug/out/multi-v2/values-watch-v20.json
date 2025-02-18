@@ -4,7 +4,7 @@
             "outputFile": "com.example.synergy_app-mergeDebugResources-33:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dhdar\\.gradle\\caches\\transforms-3\\32441f96ed5e7f91f860c4634bce96c0\\transformed\\jetified-play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\dhdar\\.gradle\\caches\\transforms-3\\ef37e14ee12f7e0d24dd6db72203879d\\transformed\\jetified-play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",

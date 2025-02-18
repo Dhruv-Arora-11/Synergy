@@ -4,7 +4,7 @@
             "outputFile": "com.example.synergy_app-mergeDebugResources-33:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dhdar\\AndroidStudioProjects\\synergy_app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\dhdar\\Desktop\\backup\\sem3\\synergy_app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
